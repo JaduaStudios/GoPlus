@@ -11,7 +11,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --firefoxcss-main-bg-color: hsl(240, 2%, 13%);
+    --firefoxcss-main-bg-color: rgba(23, 26, 30, 0.92);
     --firefoxcss-item-bg-color: hsl(240, 2%, 20%);
     --firefoxcss-item-hover-bg-color: hsl(240, 2%, 25%);
     --firefoxcss-text-color: hsl(0, 0%, 100%);
@@ -52,7 +52,7 @@
     --firefoxcss-shortcut-item-top-border-hover: #97979791;
 
     --firefoxcss-customize-menu: #1e1e1e8c;
-    --firefoxcss-customize-menu-bg-image: url("ASSETS/other/noise-512x512.png");
+    --firefoxcss-customize-menu-bg-image: url("image/noise-512x512.png");
     --firefoxcss-customize-menu-dropdown: #1e1e1e80;
     --firefoxcss-input-focus: white;
     /*  no changes */
@@ -65,7 +65,7 @@
     --firefoxcss-settings-wheel-color: hsla(240, 20%, 90%, 0.6);
     --firefoxcss-settings-wheel-color-hover: hsla(240, 20%, 90%, 0.9);
     --firefoxcss-shortcut-search-icon-color: #7ae3f463;
-	  
+
     /* ----- Firefox View color changes ----- */
     --fxview-background-color: var(--firefoxcss-main-bg-color) !important;
     --fxview-background-color-secondary: var(--firefoxcss-item-bg-color) !important;
@@ -84,9 +84,9 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --firefoxcss-main-bg-color: hsl(240, 15%, 95%);
+    --firefoxcss-main-bg-color: rgba(230, 234, 240, 0.92);
     --firefoxcss-item-bg-color: hsl(240, 20%, 98%);
-    --firefoxcss-item-hover-bg-color:  color-mix(in srgb, currentColor 10%, transparent);
+    --firefoxcss-item-hover-bg-color: hsl(240, 5%, 95%);
     --firefoxcss-text-color: hsl(0, 0%, 0%);
     --firefoxcss-other-color: hsl(290, 21%, 20%);
 
@@ -137,7 +137,7 @@
     --firefoxcss-settings-wheel-color: hsla(240, 20%, 10%, 0.6);
     --firefoxcss-settings-wheel-color-hover: hsla(240, 20%, 10%, 0.9);
     --firefoxcss-shortcut-search-icon-color: #2896a870;
-	  
+
     /* ----- Firefox View color changes ----- */
     --fxview-background-color: var(--firefoxcss-main-bg-color) !important;
     --fxview-background-color-secondary: var(--firefoxcss-item-bg-color) !important;
@@ -159,7 +159,7 @@ body {
 
   /* html.private {
 		background-color: #1e1e1e80 !important;
-		background-image: url(ASSETS/icons/.jpg) !important ;
+		background-image: url(image/.jpg) !important ;
 		background-size: cover  !important;
 	} */
 
@@ -501,7 +501,7 @@ url("about:newtab") {
   }
 
   /*.outer-wrapper .search-wrapper .search-handoff-button {
-     background-image: url("ASSETS/icons/search-glass.svg") !important;
+     background-image: url("image/search-glass.svg") !important;
      background-size: 16px !important;  
   }*/
 }
@@ -523,14 +523,15 @@ url("about:newtab") {
     flex-direction: row !important;
     padding-block: 30px 20px !important;
   }
- 
-  @media (max-width: 52rem) {
-  div.sticky-container.bottom-fade {
-    flex-direction: column !important;
-    }
+
+  #colorways {
+    display: none !important;
   }
 
-}
+  #tabpickup-tabs-container #synced-tabs-placeholder {
+    background-color: var(--firefoxcss-item-bg-color) !important;
+    border-radius: 8px !important;
+  }
 
 @-moz-document url-prefix("about:") {
   :root {

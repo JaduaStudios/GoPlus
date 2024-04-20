@@ -53,12 +53,13 @@
   :root {
     /* Main dark color, url bar, active tab etc. */
     --firefoxcss-main-bg-color: hsl(240, 2%, 13%);
+	--newtab-background-color: #131313cf;
 
     /* Main lighter color, toolbar background */
     --firefoxcss-item-bg-color: hsl(240, 2%, 20%);
 
     /* Tab colors */
-    --firefoxcss-tab-bg-color: hsl(240, 2%, 26%);
+    --firefoxcss-tab-bg-color: hsl(240, 8%, 6%);
     --firefoxcss-tab-hover-bg-color: hsl(240, 2%, 32%);
     --firefoxcss-tab-active-bg-color: var(--firefoxcss-main-bg-color);
     --firefoxcss-non-active-tabs: hsla(0, 0%, 100%, 0.65);
@@ -101,7 +102,7 @@
     --firefoxcss-url-breakout-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
       rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
       rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    --firefoxcss-url-clipboard-button: color-mix(in srgb, currentColor 10%, transparent);
+	--firefoxcss-url-clipboard-button: color-mix(in srgb, currentColor 10%, transparent);
 
     /* Other colors */
     --firefoxcss-urlbar-zoom-button: hsla(0, 0%, 60%, 0.35);
@@ -115,28 +116,6 @@
     --firefoxcss-customize-view-dashed-outline: hsla(0, 0%, 100%, 0.25);
     --firefoxcss-customize-view-flex-space: #d0ba9e;
     --firefoxcss-customize-view-overflow-menu: hsl(240, 2%, 10%);
-    
-    /* ============== Firefox Global colors change ==================== */
-    --arrowpanel-background: var(--firefoxcss-main-bg-color) !important;
-    --button-hover-bgcolor: hsla(0, 0%, 60%, 0.35) !important;
-    --button-active-bgcolor: hsla(0, 0%, 45%, 0.35) !important;
-    --button-bgcolor: hsla(0, 0%, 45%, 0.9) !important;
-    --arrowpanel-border-color: hsla(0, 0%, 50%, 0.25) !important;
-    --dark-menu-background-color: #222121 !important;
-    --dark-menu-border-color: rgb(55, 55, 55) !important;
-    --dark-menu-background-color: #222121 !important;
-    --dark-menu-border-color: rgb(55, 55, 55) !important;
-    --dark-menuitem-hover-background-color: rgba(
-      159,
-      159,
-      159,
-      0.35
-    ) !important;
-    --panel-separator-color: var(--arrowpanel-border-color) !important;
-    --panel-separator-zap-gradient: var(--panel-separator-color) !important;
-    --lwt-sidebar-background-color: var(--firefoxcss-main-bg-color) !important;
-    --urlbarView-highlight-background: hsl(240, 2%, 20%) !important;
-    --urlbarView-hover-background: color-mix(in srgb, currentColor 8%, transparent) !important;
   }
 }
 
@@ -196,7 +175,7 @@
     --firefoxcss-url-autocomplete-highlight: hsl(240, 10%, 90%);
     --firefoxcss-url-breakout-box-shadow: transparent 0 0 0 3px,
       rgba(18, 18, 18, 0.08) 2px 10px 22px;
-    --firefoxcss-url-clipboard-button: color-mix(in srgb, currentColor 10%, transparent);
+	--firefoxcss-url-clipboard-button: color-mix(in srgb, currentColor 10%, transparent);
 
     /* Other colors */
     --firefoxcss-urlbar-zoom-button: hsla(240, 8%, 60%, 0.35);
@@ -208,18 +187,6 @@
     --firefoxcss-customize-view-dashed-outline: hsla(0, 0%, 0%, 0.2);
     --firefoxcss-customize-view-flex-space: hsl(34, 50%, 70%);
     --firefoxcss-customize-view-overflow-menu: hsl(240, 10%, 100%);
-    
-    /* ============== Firefox Global colors change ==================== */
-    --arrowpanel-background: hsl(240, 15%, 98%) !important;
-    --button-hover-bgcolor: hsla(240, 5%, 70%, 0.35) !important;
-    --button-active-bgcolor: hsla(240, 5%, 50%, 0.35) !important;
-    --button-bgcolor: hsla(0, 0%, 45%, 0.1) !important;
-    /* Search Bar */
-    --arrowpanel-border-color: hsla(0, 0%, 50%, 0.25) !important;
-    --panel-separator-color: var(--arrowpanel-border-color) !important;
-    --panel-separator-zap-gradient: var(--panel-separator-color) !important;
-    --lwt-sidebar-background-color: var(--firefoxcss-main-bg-color) !important;
-    --urlbarView-hover-background: color-mix(in srgb, currentColor 8%, transparent) !important;
   }
 }
 
@@ -269,12 +236,17 @@ Order of Toolbars
 
 /* Sidebar background color change */
 #browser #sidebar-box {
-  --sidebar-background-color: var(--firefoxcss-main-bg-color) !important;
+  --sidebar-background-color: var(--toolbar-bgcolor) !important;
 }
+
+.sidebar-container {
+	background-color: var(--lwt-accent-color) !important;
+}
+	
 
 /* Bookmarks bar background color */
 #PersonalToolbar {
-  background-color: var(--firefoxcss-bookmarks-bg-color) !important;
+  background-color: var(--toolbar-bgcolor) !important;
   backdrop-filter: blur(10px) !important;
 }
 
@@ -285,13 +257,13 @@ Order of Toolbars
 
 /* Whole Main Toolbar */
 #navigator-toolbox {
-  background-color: var(--firefoxcss-item-bg-color) !important;
+  background-color: var(--toolbar-bgcolor) !important;
 }
 
 /* Avoids bright flash */
 #tabbrowser-tabpanels {
   background-color: var(
-    --uc-light-bkgnd-color,
+    --toolbar-bgcolor,
     var(--firefoxcss-bright-flash-color)
   ) !important;
 }
@@ -299,12 +271,14 @@ Order of Toolbars
 /* CTRL+F Search Bar color changes  */
 .browserContainer > findbar {
   background-image: none !important;
-  background-color: var(--firefoxcss-main-bg-color) !important;
+  background-color: var(--toolbar-field-background-color) !important;
 }
 
 .browserContainer > findbar .findbar-textbox {
-  background-color: var(--firefoxcss-item-bg-color) !important;
+  background-color: var(--toolbar-field-background-color) !important;
 }
+
+
 
 /*=====================================================================
 ========================= H I D E   E L E M E N T S ===================
@@ -343,6 +317,10 @@ Order of Toolbars
     var(--firefoxcss-top-bar-border-bottom-color) !important;
 }
 
+.titlebar-buttonbox-container {
+	display: none !important;
+}
+
 /*=====================================================================
 ======================= H E I G H T   F I X E S =======================
 =====================================================================*/
@@ -362,11 +340,11 @@ Order of Toolbars
 
 /* Tabs Bar height */
 :root {
-  --tab-min-height: 28px !important;
+  --tab-min-height: 27px !important;
 }
 
 :root #tabbrowser-tabs {
-  --tab-min-height: 28px !important;
+  --tab-min-height: 32px !important;
 }
 
 /* Menu Bar height */
@@ -399,6 +377,15 @@ Order of Toolbars
   height: var(--urlbar-height) !important;
 }
 
+/* Side Button height */
+.sidebar-container {
+  --tab-min-height: 38px !important;
+}
+
+.browser-toolbar {
+  padding-top: 5px !important;
+}
+
 /*=====================================================================
 =============================== I C O N S =============================
 =====================================================================*/
@@ -411,60 +398,60 @@ Order of Toolbars
 about:config -> svg.context-properties.content.enabled -> true*/
 @media (prefers-color-scheme: dark) {
   #PanelUI-menu-button {
-    list-style-image: url(ASSETS/icons/menu.svg) !important;
+    list-style-image: url(image/menu.svg) !important;
   }
   :root[privatebrowsingmode="temporary"] #PanelUI-menu-button {
-    list-style-image: url(ASSETS/icons/menu-private.svg) !important;
+    list-style-image: url(image/menu-private.svg) !important;
   }
 
   #find-button {
-    list-style-image: url(ASSETS/icons/search.svg) !important;
+    list-style-image: url(image/search.svg) !important;
   }
 
   #privatebrowsing-button {
-    list-style-image: url(ASSETS/icons/private.svg) !important;
+    list-style-image: url(image/private.svg) !important;
   }
 
   #forward-button,
   menugroup > #context-forward,
   #search-container #searchbar .search-go-button,
   #urlbar-go-button {
-    list-style-image: url(ASSETS/icons/right-arrow.svg) !important;
+    list-style-image: url(image/right-arrow.svg) !important;
   }
 
   #back-button,
   menugroup > #context-back {
-    list-style-image: url(ASSETS/icons/left-arrow.svg) !important;
+    list-style-image: url(image/left-arrow.svg) !important;
   }
 }
 
 @media (prefers-color-scheme: light) {
   #PanelUI-menu-button {
-    list-style-image: url(ASSETS/icons/menu-light.svg) !important;
+    list-style-image: url(image/menu-light.svg) !important;
   }
 
   :root[privatebrowsingmode="temporary"] #PanelUI-menu-button {
-    list-style-image: url(ASSETS/icons/menu-private-light.svg) !important;
+    list-style-image: url(image/menu-private-light.svg) !important;
   }
 
   #find-button {
-    list-style-image: url(ASSETS/icons/search-light.svg) !important;
+    list-style-image: url(image/search-light.svg) !important;
   }
 
   #privatebrowsing-button {
-    list-style-image: url(ASSETS/icons/private-light.svg) !important;
+    list-style-image: url(image/private-light.svg) !important;
   }
 
   #forward-button,
   menugroup > #context-forward,
   #search-container #searchbar .search-go-button,
   #urlbar-go-button {
-    list-style-image: url(ASSETS/icons/right-arrow-light.svg) !important;
+    list-style-image: url(image/right-arrow-light.svg) !important;
   }
 
   #back-button,
   menugroup > #context-back {
-    list-style-image: url(ASSETS/icons/left-arrow-light.svg) !important;
+    list-style-image: url(image/left-arrow-light.svg) !important;
   }
 }
 
@@ -488,19 +475,15 @@ about:config -> svg.context-properties.content.enabled -> true*/
   border-bottom: transparent;
 }
 
-#urlbar .urlbar-input-box {
-  text-align: center;
+#urlbar .urlbar-input-box, #urlbar-input {
+  text-align: left;
 }
 
 #urlbar {
   --autocomplete-popup-highlight-background: var(
     --firefoxcss-url-autocomplete-highlight
   ) !important;
-  border: 0 !important;
-  background-color: var(--firefoxcss-url-bar-bg-color) !important;
-  border-bottom: var(--firefoxcss-url-border-bottom-color) !important;
-  border-top: var(--firefoxcss-url-border-top-color) !important;
-  box-shadow: var(--firefoxcss-url-box-shadow-color) !important;
+  background-color: var(--toolbar-field-background-color) !important;
 }
 
 .urlbarView:not([noresults]) > .search-one-offs:not([hidden]) {
@@ -512,8 +495,23 @@ about:config -> svg.context-properties.content.enabled -> true*/
   height: auto !important;
 }
 
+#urlbar[breakout][breakout-extend][open]:not(#urlbar-input) {
+  animation: slideDown 0.15s;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 #urlbar[breakout][breakout-extend][open] {
-  background-color: var(--firefoxcss-url-breakout-bar-bg-color) !important;
+  background-color: var(--toolbar-field-background-color) !important;
   border-bottom: 1px solid var(--firefoxcss-url-breakout-border-bottom-color) !important;
   border-top: var(--firefoxcss-url-border-top-color) !important;
   box-shadow: var(--firefoxcss-url-breakout-box-shadow) !important;
@@ -540,7 +538,7 @@ about:config -> svg.context-properties.content.enabled -> true*/
   outline: 0 !important;
   border: 0 !important;
   border-radius: var(--firefoxcss-border-radius) !important;
-  background-color: var(--firefoxcss-url-bar-bg-color) !important;
+  background-color: var(--toolbar-field-background-color) !important;
   border-bottom: var(--firefoxcss-url-border-bottom-color) !important;
   border-top: var(--firefoxcss-url-border-top-color) !important;
   box-shadow: var(--firefoxcss-url-box-shadow-color) !important;
@@ -654,7 +652,7 @@ about:config -> svg.context-properties.content.enabled -> true*/
   border: 0 !important;
   border-radius: var(--firefoxcss-border-radius) !important;
   background-image: none !important;
-  background-color: var(--firefoxcss-tab-active-bg-color) !important;
+  background-color: var(--lwt-accent-color) !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -756,7 +754,7 @@ about:config -> svg.context-properties.content.enabled -> true*/
   }
 
   #nav-bar {
-    padding-right: var(--firefoxcss-control-buttons-margin) !important;
+    padding-right: var(--firefoxcss-control-buttons-margin);
   }
 
   #navigator-toolbox:not([inFullscreen])
@@ -835,6 +833,13 @@ menupopup :-moz-any(menu, menuitem) {
   padding-bottom: 4px !important;
 }
 
+menupopup, panel {
+  &::part(content)
+{
+    border: 1px solid var(--firefoxcss-shortcut-item-context-menu-border) !important;
+  }
+}
+
 @media (-moz-platform: windows) {
   #context-navigation
     > .menuitem-iconic[_moz-menuactive="true"]
@@ -894,8 +899,8 @@ menuseparator#context-sep-navigation {
 }
 
 #context-navigation:not([hidden]) {
-  background-color: var(--firefoxcss-context-menu-top-color) !important;
-  padding: 1px 0px 1px !important;
+  background-color: transparent;
+  padding: 1px 4px 1px !important;
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
   margin-left: 0px !important;
@@ -905,6 +910,10 @@ menuseparator#context-sep-navigation {
 menupopup#contentAreaContextMenu {
   --panel-padding: unset !important;
   --panel-padding: 0 0 5px !important;
+}
+
+.menupopup-arrowscrollbox {
+  overflow: hidden !important;
 }
 
 menupopup
@@ -1495,6 +1504,14 @@ toolbar
   opacity: 0.3 !important;
 }
 
+#tabbrowser-tabpanels {
+  browser[type="content"] {
+	border-radius: 17px;
+    border: 1px solid var(--lwt-accent-color);
+    margin: 5px;
+  }
+}
+
 /* Container extension code */
 #tabbrowser-tabs .tab-context-line {
   display:none !important;
@@ -1505,22 +1522,30 @@ toolbar
   & > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action {
      background-color: var(--firefoxcss-url-clipboard-button) !important;
     padding: 4px 8px !important;
-  }
+}
 
 .urlbarView-button {
   .urlbarView-row:is([row-selectable]:hover, [selected]) > &:not(:hover, [open]) {
     background-color: transparent !important;
     opacity: 0.8 !important;
-  }
+}
 
-/* #appcontent
-  > #tabbrowser-tabbox
-  > #tabbrowser-tabpanels
-  > .deck-selected
-  > .browserContainer
-  > .browserStack
-  > browser {
-  border-radius: 12px !important;
-  margin: 8px !important;
-  z-index: 3;
-} */
+/*=====================================================================
+====================== V E R T I C A L   T A B S ======================
+=====================================================================*/
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[fadein]:not([pinned]) {
+	max-width: unset !important;
+}
+
+#tabbrowser-tabs:not([overflow])[orient="vertical"] .tabbrowser-tab[selected][fadein]:not([pinned]) {
+	max-width: unset !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-background[selected] {
+	background-color: var(--lwt-selected-tab-background-color) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-background:not([selected]) {
+	background-color: var(--lwt-accent-color) !important;
+}
